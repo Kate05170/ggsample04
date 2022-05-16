@@ -124,7 +124,34 @@ int GgApp::main(int argc, const char* const* argv)
     // 時刻 t にもとづく回転アニメーション
     GLfloat mr[16];                   // 回転の変換行列
     // 【宿題】ここを解答してください（下の loadIdentity() を置き換えてください）
-    loadIdentity(mr);
+    
+    //軸(1,0,0) 角度(180/π)
+    void qmake(float *q, float 1,float 0,float 0, float 180/π)
+    {
+      const float l(1*1 + 0*0 + 0*0);
+      if (l! = 0.0f){
+        const float s(sin(180/π *= 0.5f)/sqrt(l));
+        
+        q[0] = x*s;
+        q[1] = y*s;
+        q[2] = z*s;
+        q[3] = cos(180/π);
+      }
+    }
+    
+     //軸(0,0,1) 角度(360/π)
+    void qmake(float *q, float 0,float 0,float 1, float 360/π)
+    {
+      const float l(0*0 + 0*0 + 1*1);
+      if (l! = 0.0f){
+        const float s(sin(360/π *= 0.5f)/sqrt(l));
+        
+        q[0] = 0*s;
+        q[1] = 0*s;
+        q[2] = 1*s;
+        q[3] = cos(360/π);
+      }
+    }
 
     // 時刻 t にもとづく平行移動アニメーション
     float location[3];                // 現在位置
